@@ -99,6 +99,7 @@ export default {
   },
   created () {
     let vue = this
+    console.log(this.user)
     if (vue.logged === false) {
       vue.$router.push('/login')
     }

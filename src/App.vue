@@ -1,18 +1,17 @@
 <template>
   <div id="q-app">
     <div class="main">
-      <navbar v-on:logout="logOut" :logged="logged" :user="user" v-if="logged"></navbar>
-          <router-view v-on:login="log" v-on:register="register" v-on:logout="logOut" :logged="logged" :user="user"/>
+      <router-view v-on:login="log" v-on:register="register" v-on:logout="logOut" :logged="logged" :user="user"/>
     </div>
   </div>
 </template>
 
 <script>
-// import navbar from './components/Navbar'
+import navbar from './components/Navbar'
 export default {
   name: 'app',
   components: {
-    // 'navbar': navbar
+    'navbar': navbar
   },
   created () {
     let vue = this
