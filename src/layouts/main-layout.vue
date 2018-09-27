@@ -22,6 +22,7 @@
     <q-layout-drawer
       class="sidebar"
       side="left"
+      overlay=false
       v-model="leftDrawer"
     >
       <!-- QScrollArea is optional -->
