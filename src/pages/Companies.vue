@@ -731,7 +731,7 @@ export default {
 @lightGray: #efefef;
 
   .main {
-    margin-top: 8vh;
+    margin-top: 5vh;
     display: grid;
     grid-template-columns: 25vw 75vw;
     grid-template-rows: 92vh;
@@ -748,6 +748,10 @@ export default {
     font-weight: bold;
     font-size: 3em;
     align-self: end;
+  }
+
+  button:hover {
+    background: #9BCCEC;
   }
 
   h2 {

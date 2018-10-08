@@ -1,7 +1,7 @@
 <template>
   <div id="q-app">
     <div class="main">
-      <router-view v-on:login="log" v-on:register="register" v-on:logout="logOut" :logged="logged" :user="user"/>
+      <router-view v-on:login="log" v-on:register="register" v-on:logout="logOut" :user="user"/>
     </div>
   </div>
 </template>
@@ -57,10 +57,12 @@ export default {
         vue.user.companyId = user.companyId
         vue.user.department = user.department
         vue.user.shift = user.shift
-        vue.logged = true
+        vue.user.firstName = 'firstname'
+        vue.user.lastName = 'lastName'
+        vue.user.logged = true
         vue.$router.push('/')
       } else {
-        vue.logged = false
+        vue.user.logged = false
       }
     },
     register (user) {
@@ -74,10 +76,10 @@ export default {
         vue.user.companyId = user.companyId
         vue.user.department = user.department
         vue.user.shift = user.shift
-        vue.logged = true
+        vue.user.logged = true
         vue.$router.push('/')
       } else {
-        vue.logged = false
+        vue.user.logged = false
       }
     },
     logOut () {
@@ -89,7 +91,7 @@ export default {
       vue.user.companyId = ''
       vue.user.admin = false
       vue.user.systemAdmin = false
-      vue.logged = false
+      vue.user.logged = false
       localStorage.removeItem('weightoken')
       localStorage.removeItem('weighuserId')
       localStorage.removeItem('weighshift')

@@ -48,7 +48,7 @@ export default {
 <style scoped lang="less">
 @blue: #14325C;
 @grey: #eaeaea;
-@font: 'Monda', sans-serif;
+  @font: 'Arial', sans-serif;
 h1 {
 font-family: @font;
 color: @blue;

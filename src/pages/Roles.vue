@@ -582,7 +582,7 @@ export default {
 @darkBlue: #00578A;
 @lightBlue: #78CDFF;
 @grey: #323d38;
-@font: 'Monda', sans-serif;
+  @font: 'Arial', sans-serif;
 ::-webkit-scrollbar {
     width: 5px;
     height:5px;
@@ -593,7 +593,9 @@ export default {
     border-radius: 15px;
     border: none;
 }
-
+button:hover {
+    background: #9BCCEC;
+}
 ::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 15px;

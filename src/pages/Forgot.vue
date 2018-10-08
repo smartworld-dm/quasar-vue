@@ -50,7 +50,7 @@ export default {
 <style scoped lang="less">
 @blue: #14325C;
 @grey: #eaeaea;
-@font: 'Monda', sans-serif;
+  @font: 'Arial', sans-serif;
 .main {
   background-color: #eaeaea;
   height: 100vh;
@@ -134,5 +134,12 @@ button {
 .else .submit {
   justify-self: right;
   background: linear-gradient(#39b267, #13724b);
+}
+.else .submit:hover {
+  justify-self: right;
+ background: #9BCCEC;
+}
+button:hover {
+    background: #9BCCEC;
 }
 </style>

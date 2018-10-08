@@ -43,7 +43,7 @@ export default {
   },
   created () {
     let vue = this
-    if (vue.logged === false) {
+    if (vue.user.logged === false) {
       vue.$router.push('/login')
     }
   },
@@ -114,7 +114,7 @@ export default {
 <style scoped lang="less">
 @blue: #14325C;
 @grey: #eaeaea;
-@font: 'Monda', sans-serif;
+@font: 'Arial', sans-serif;
 .main {
   width: 100%;
   height: 100%;
@@ -147,6 +147,9 @@ h1 {
   font-size: 2.5em;
   text-align: center;
   color: @blue;
+}
+button:hover {
+    background: #9BCCEC;
 }
 button {
   color: white;
