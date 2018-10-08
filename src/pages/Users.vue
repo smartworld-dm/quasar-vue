@@ -48,7 +48,6 @@
     <div class="spreadSheetVar" v-else>
       <div class="massUpdate">
         <h1>Users Panel</h1>
-
         <button class="createNewButton" v-on:click="createNew()">Create New User</button>
         <button class="selectAll" v-on:click="selectAll()">Select All</button>
         <select class="select" v-model="updateField">
@@ -160,7 +159,23 @@ export default {
         vue.deleteModal = true
       }
     })
+    let shift = vue.$route.params.shift
+    let location = vue.$route.params.location
+    console.log('Users params')
+    console.log(vue.$route.params)
+    vue.shiftCompany(vue.$route.params.company)
+    vue.locationSchedule(vue.$route.params.location)
+    if (vue.$route.params.shift !== undefined) {
+      vue.shiftSchedule(shift, location)
+    }
+    if (vue.$route.params.department !== undefined) {
+      vue.departmentSchedule(vue.$route.params.department, location)
+    }
     vue.populateCompanies()
+    vue.populateLocationUsers()
+    vue.populateDepartmentUsers()
+    vue.populateShiftUsers()
+    vue.populateCompanyUsers()
   },
   data: function () {
     return {
@@ -641,7 +656,7 @@ export default {
 @darkBlue: #00578A;
 @lightBlue: #78CDFF;
 @grey: #323d38;
-@font: 'Monda', sans-serif;
+  @font: 'Arial', sans-serif;
 ::-webkit-scrollbar {
     width: 5px;
     height:5px;
@@ -825,7 +840,7 @@ h1 {
   grid-column: 1;
   grid-row: 2;
   display: grid;
-  grid-template-columns: 10vw 1vw 10vw 1vw 10vw 1vw 10vw 1vw 10vw;
+  grid-template-columns: 10vw 0vw 10vw 0vw 10vw 1vw 10vw 1vw 10vw;
   grid-template-rows: 6vh 1vh 6vh 1vh;
 }
 
@@ -931,7 +946,7 @@ button:hover {
 .buttonPanel {
   display:grid;
   grid-template-columns: 10vw 1vw;
-  grid-template-rows: 6vh 1vh 6vh 1vh;
+  grid-template-rows: 5vh 0vh 5vh 0vh;
   grid-row:6;
   grid-column: 1;
 }

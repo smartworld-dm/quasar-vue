@@ -3,20 +3,6 @@
     <div class="peaceOfMind">
       <div class="leftSidePane">
         <button class="updateShiftSchedule" v-on:click="updateShiftSchedule" v-if="activeShift.shifts.length!==0">Update Schedule</button>
-        <h5 class="listHeader">Company Directory</h5>
-        <div class="companyList">
-          <div class="company" v-for="company in companies" v-bind:key="company._id">
-            <div class="companyName" v-on:click="shiftCompany(company); company.expand=!company.expand" v-bind:class="{'highlightCompany': company.companyId === pane.company}">{{company.companyName}}</div>
-            <div class="locationColumn" v-if="company.expand" v-for="location in company.locations" v-bind:key="location._id">
-              <div class="locationColumnName" v-on:click="locationSchedule(location); location.expand=!location.expand" v-bind:class="{'highlight': location._id === pane.location}">{{location.name}}</div>
-              <div class="shiftsBox"  v-if="location.expand">
-                <div class="shiftColumn" v-for="shift in location.shifts" v-bind:key="shift._id">
-                  <div class="shiftColumnName" v-on:click="shiftSchedule(shift, location)" v-bind:class="{'highlight': shift.shiftId === pane.shift}">{{shift.name}}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <calendarPicker class="calendarPicker" v-on:pick="populateActiveShift" v-if="startHighlight" :timeProp="activeDate" :activeShift="activeShift" :calendar="calendar" :hours="hours"></calendarPicker>
       </div>
       <div class="emptyView" v-if="activeShift.id === '' && pane.shift === '' && pane.department === ''">
@@ -106,6 +92,10 @@ export default {
     vue.activeDate = new Date().toISOString()
     vue.populateCompanies()
     vue.pane.company = vue.user.companyId
+    let shift = vue.$route.params.shift
+    let location = vue.$route.params.location
+    vue.shiftCompany(vue.$route.params.company)
+    vue.shiftSchedule(shift, location)
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Delete') {
         event.preventDefault()
@@ -202,6 +192,7 @@ export default {
       vue.pane.shift = ''
     },
     shiftSchedule (shift, location) {
+      console.log('shiftSchedule')
       let vue = this
       vue.pane.location = location._id
       vue.pane.shift = shift.shiftId
@@ -567,7 +558,7 @@ export default {
 <style scoped lang="less">
 @blue: #14325C;
 @grey: #eaeaea;
-@font: 'Monda', sans-serif;
+  @font: 'Arial', sans-serif;
 .else {
   width: 100%;
   height: 92vh;
@@ -581,7 +572,9 @@ export default {
   grid-template-columns: 24vw 76vw;
   grid-template-rows: repeat(20, 4.5vh);
 }
-
+button:hover {
+    background: #9BCCEC;
+}
 .highlightCompany {
   background-color: @blue !important;
   color: white;
@@ -721,7 +714,7 @@ button {
   border-right: 1px solid grey;
   display: grid;
   grid-template-columns: 2vw 20vw 2vw;
-  grid-template-rows: 0vh 1vh 5vh 1vh 5vh 1vh 39vh 2vh 36vh 2vh;
+  grid-template-rows: 0vh 1vh 5vh 1vh 5vh 1vh 10vh 2vh 36vh 2vh;
 }
 
 .newShiftModal {
@@ -749,6 +742,9 @@ button {
   grid-row: 3;
 }
 
+.updateShiftSchedule:hover {
+  background: #9BCCEC;
+}
 .updateCompanyList {
   grid-row: 5;
 }
@@ -1186,5 +1182,12 @@ button {
   grid-column: 2;
   background-color: #9fd2ea;
   box-shadow: 0px 1px 3px grey;
+}
+.companyName:hover{
+  background: #9BCCEC;
+}
+
+.highlightCompany:hover{
+  background: #9BCCEC;
 }
 </style>

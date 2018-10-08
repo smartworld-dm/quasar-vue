@@ -66,11 +66,6 @@
     </div>
     <div class="accountHome">
       <h1>Account</h1>
-      <button class="Companies" v-on:click="$router.push('/Companies')">Companies</button>
-      <button class="claimable" v-on:click="$router.push('/claimable')">Shift Claim</button>
-      <button class="Users" v-on:click="$router.push('/Users')">Users</button>
-      <button class="Roles" v-on:click="$router.push('/Roles')">Roles</button>
-
       <button class="update" v-on:click="modal='pass'">Update Password</button>
     </div>
   </div>
@@ -107,7 +102,9 @@ export default {
     }
   },
   created () {
-    if (this.logged !== true) {
+    console.log('account created' + this.logged)
+    console.log('account created' + JSON.stringify(this.user))
+    if (this.user.logged !== true) {
       this.$router.push('/login')
     }
     this.populateActiveUser()
@@ -199,6 +196,8 @@ export default {
           vue.activeUser.admin = response.data.admin
           vue.activeUser.systemAdmin = response.data.systemAdmin
           vue.departmentParse()
+
+          console.log('populateActiveuser')
         })
         .catch(function (error) {
           console.log(error)
@@ -224,7 +223,7 @@ export default {
 @darkBlue: #00578A;
 @lightBlue: #78CDFF;
 @grey: #323d38;
-@font: 'Monda', sans-serif;
+  @font: 'Arial', sans-serif;
 
   .main {
     width: 300px;
@@ -245,7 +244,9 @@ export default {
     width: 100%;
     font-family: @font;
   }
-
+  button:hover {
+      background: #9BCCEC;
+  }
   h2 {
     font-size: 1.3em;
     text-align: left;
@@ -294,7 +295,7 @@ export default {
     border-bottom: 1px solid grey;
     position: fixed;
     top: 0;
-    margin-top: 8vh;
+    margin-top: 5vh;
   }
 
   .accountHome button {

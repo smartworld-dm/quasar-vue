@@ -15,7 +15,7 @@
 
 <script>
 import axios from 'axios'
-
+import Global from '../global'
 export default {
   name: 'Login',
   props: ['logged'],
@@ -45,7 +45,8 @@ export default {
   methods: {
     login () {
       let vue = this
-      axios.post('https://api.shiftnotification.com/users/login', {
+      console.log(Global)
+      axios.post(Global.DEBUG_URL + '/users/login', {
         email: vue.email.toLowerCase(),
         password: vue.password
       })
@@ -93,8 +94,10 @@ export default {
 <style scoped lang="less">
   @blue: #14325C;
   @grey: #b3bfcc;
-  @font: 'Monda', sans-serif;
-
+  @font: 'Arial', sans-serif;
+  button:hover {
+      background: #9BCCEC;
+  }
   .main {
     height: 100%;
     width: 100%;
@@ -112,7 +115,7 @@ export default {
   }
 
   h1 {
-    font-family: 'Monda', sans-serif;
+    font-family: 'Arial', sans-serif;
     color: @blue;
     font-weight: 400;
     grid-row: 4;

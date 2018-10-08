@@ -24,7 +24,7 @@ export default {
   @darkBlue: #00578A;
   @lightBlue: #78CDFF;
   @grey: #323d38;
-  @font: 'Monda', sans-serif;
+  @font: 'Arial', sans-serif;
 
   .navbar {
     top: 0;
