@@ -17,6 +17,7 @@
         Update Account
         <input v-model="activeRole.updateAccount" type="checkbox"/>
       </div>
+
       <div class="user">
         <h5>User</h5>
         <input v-model="activeRole.users.create" type="checkbox"/>Create
@@ -136,49 +137,242 @@
       <div class="viewAccessLevel">Access Level: {{activeRole.accessLevel}}</div>
       <div class="viewAppsNotify">Notify: {{activeRole.apps.notify}}</div>
       <div class="viewUpdateAccount">Update: {{activeRole.updateAccount}}</div>
-      <div class="viewUsers">
-        <h5>Users</h5>
-        Create:{{activeRole.users.create}}<br/>
-        Read:{{activeRole.users.read}}<br/>
-        Update:{{activeRole.users.update}}<br/>
-        Delete:{{activeRole.users.delete}}<br/>
+      <div class="customTable">
+        <table>
+          <tbody>
+          <tr>
+            <th>
+              kinds
+            </th>
+            <th>
+              Create
+            </th>
+            <th>
+              Read
+            </th>
+            <th>
+              Update
+            </th>
+            <th>
+              Delete
+            </th>
+          </tr>
+
+          <tr>
+            <td>Users</td>
+            <td>
+              <div v-if="activeRole.users.create">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.users.read">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.users.update">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.users.delete">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Departments</td>
+            <td>
+              <div v-if="activeRole.departments.create">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.departments.read">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.departments.update">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.departments.delete">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Roles</td>
+            <td>
+              <div v-if="activeRole.roles.create">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.roles.read">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.roles.update">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.roles.delete">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>ClaimableShifts</td>
+            <td>
+              <div v-if="activeRole.claimableShifts.create">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.claimableShifts">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.claimableShifts.update">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.claimableShifts.delete">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Shifts</td>
+            <td>
+              <div v-if="activeRole.shifts.create">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.shifts.read">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.shifts.update">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.shifts.delete">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Schedules</td>
+            <td>
+              <div v-if="activeRole.schedules.create">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.schedules.read">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.schedules.update">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+            <td>
+              <div v-if="activeRole.schedules.delete">
+                <input type="checkbox" name="create"  disabled  checked>
+              </div>
+              <div v-else>
+                <input type="checkbox" name="create"  disabled>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="viewDepartments">
-        <h5>Departments</h5>
-        Create:{{activeRole.departments.create}}<br/>
-        Read:{{activeRole.departments.read}}<br/>
-        Update:{{activeRole.departments.update}}<br/>
-        Delete:{{activeRole.departments.delete}}<br/>
-      </div>
-      <div class="viewRoles">
-        <h5>Roles</h5>
-        Create:{{activeRole.roles.create}}<br/>
-        Read:{{activeRole.roles.read}}<br/>
-        Update:{{activeRole.roles.update}}<br/>
-        Delete:{{activeRole.roles.delete}}<br/>
-      </div>
-      <div class="viewClaimableShifts">
-        <h5>ClaimableShifts</h5>
-        Create:{{activeRole.claimableShifts.create}}<br/>
-        Read:{{activeRole.claimableShifts.read}}<br/>
-        Update:{{activeRole.claimableShifts.update}}<br/>
-        Delete:{{activeRole.claimableShifts.delete}}<br/>
-      </div>
-      <div class="viewShifts">
-        <h5>Shifts</h5>
-        Create:{{activeRole.shifts.create}}<br/>
-        Read:{{activeRole.shifts.read}}<br/>
-        Update:{{activeRole.shifts.update}}<br/>
-        Delete:{{activeRole.shifts.delete}}<br/>
-      </div>
-      <div class="viewSchedules">
-        <h5>Schedules</h5>
-        Create:{{activeRole.schedules.create}}<br/>
-        Read:{{activeRole.schedules.read}}<br/>
-        Update:{{activeRole.schedules.update}}<br/>
-        Delete:{{activeRole.schedules.delete}}<br/>
-      </div>
-      <button class="editbutton" v-on:click="modal='edit'">Edit</button>
+
+       <button class="editbutton" v-on:click="modal='edit'">Edit</button>
       <button class="back" v-on:click="clearActiveRole(); populateRoles(); modal=''">Back</button>
     </div>
     <div class="viewAll">
@@ -635,7 +829,19 @@ button {
   text-align:center;
   text-decoration: underline;
 }
-
+.customTable {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 8;
+}
+.customTable table {
+  width: 100%;
+  height: 100%;
+}
+.customTable table td{
+  text-align: center;
+}
 .viewAppsNotify {
   grid-column-start: 2;
   grid-column-end: 3;

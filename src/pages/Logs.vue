@@ -53,6 +53,8 @@ h1 {
 font-family: @font;
 color: @blue;
 text-align:center;
+margin-top: 0px !important;
+padding-top: 75px !important;
 }
 .logColumn {
   display: grid;
